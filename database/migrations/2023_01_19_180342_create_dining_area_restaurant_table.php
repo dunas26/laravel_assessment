@@ -17,8 +17,8 @@ class CreateDiningAreaRestaurantTable extends Migration
         Schema::create('dining_area_restaurant', function (Blueprint $table) {
             $table->id();
             $table->index('restaurant_id');
-            $table->integer('restaurant_id');
-            $table->integer('dining_area_id');
+            $table->unsignedBigInteger('restaurant_id');
+            $table->unsignedBigInteger('dining_area_id');
             $table->foreign('restaurant_id')->references('id')->on('restaurants');
             $table->foreign('dining_area_id')->references('id')->on('dining_areas');
         });

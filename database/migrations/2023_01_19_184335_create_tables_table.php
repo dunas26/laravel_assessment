@@ -19,8 +19,8 @@ class CreateTablesTable extends Migration
             $table->integer('minimum_capacity');
             $table->integer('maximum_capacity');
             $table->boolean('active');
-            $table->integer('restaurant_id');
-            $table->integer('dining_area_id');
+            $table->unsignedBigInteger('restaurant_id');
+            $table->unsignedBigInteger('dining_area_id');
             $table->index('restaurant_id');
             $table->foreign('restaurant_id')->references('id')->on('restaurants');
             $table->index('dining_area_id');
