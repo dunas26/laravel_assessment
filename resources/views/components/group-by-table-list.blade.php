@@ -29,26 +29,22 @@
         padding: 0.5rem;
     }
 
+    .tablelist__group {
+        display: flex;
+        padding: 0.5rem;
+        margin-top: 1rem;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: rgb(145 165 185);
+        color: white;
+        font-weight: bold;
+    }
+
     .tablelist__header {
         background-color: rgb(47, 161, 196);
         color: white;
         font-weight: bold;
         border-bottom: 1px solid rgb(230 230 230);
-
-    }
-
-    .tablelist__entry_active {
-        display: flex;
-        align-items: center;
-        gap: 0.25rem;
-    }
-
-    .tablelist__entry_active.active {
-        color: rgb(100 190 100);
-    }
-
-    .tablelist__entry_active.inactive {
-        color: rgb(220 100 100);
     }
 </style>
 @endonce
@@ -58,17 +54,18 @@
         <p>Table name</p>
         <p>Min. Capacity</p>
         <p>Max. Capacity</p>
-        <p>Is active</p>
     </section>
-    @foreach($tables as $table)
-        <section class="tablelist__entry">
-            <p>{{ $table->name }}</p>
-            <p>{{ $table->minimum_capacity }}</p>
-            <p>{{ $table->maximum_capacity }}</p>
-            <section class="tablelist__entry_active {{$table->active ? ' active' : ' inactive'}}">
-                <i class="bx bx-{{ $table->active ? 'check' : 'x'}}"></i>
-                <p>{{ $table->active ? 'yes' : 'no'}}</p>
+    @foreach($groups as $dining_area => $tables)
+    <section class="tablelist__group">
+        <i class="bx bxs-map"></i>
+        <p>{{ $dining_area }}</p>
+    </section>
+        @foreach($tables as $table)
+            <section class="tablelist__entry">
+                <p>{{ $table->name }}</p>
+                <p>{{ $table->minimum_capacity }}</p>
+                <p>{{ $table->maximum_capacity }}</p>
             </section>
-        </section>
+        @endforeach
     @endforeach
 </article>

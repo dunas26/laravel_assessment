@@ -57,7 +57,7 @@ main {
 </style>
 @endpush
 
-@section('content')
+@section('base-content')
 
 <section class="content">
     <header>
