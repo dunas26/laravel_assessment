@@ -34,7 +34,7 @@
 .restaurant_section__badgegroup {
     display: flex;
     gap: 1rem;
-    color: rgb(150 150 150);
+    color: rgb(180 180 180);
 }
 
 .restaurant_section__badgegroup .active {

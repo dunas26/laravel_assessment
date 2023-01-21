@@ -25,7 +25,7 @@
     .tablelist__entry,
     .tablelist__header {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         padding: 0.5rem;
     }
 
