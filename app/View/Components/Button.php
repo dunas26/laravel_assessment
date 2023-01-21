@@ -11,10 +11,11 @@ class Button extends Component
      *
      * @return void
      */
-    public function __construct(string $label = "", string $boxicon = "")
+    public function __construct(string $label = "", string $boxicon = "", bool $emphasis = null)
     {
         $this->label = $label;
         $this->boxicon = $boxicon;
+        $this->emphasis = $emphasis;
     }
 
     /**
@@ -24,6 +25,6 @@ class Button extends Component
      */
     public function render()
     {
-        return view('components.button', ['label' => $this->label, 'boxicon' => $this->boxicon]);
+        return view('components.button', ['label' => $this->label, 'boxicon' => $this->boxicon, 'emphasis' => $this->emphasis ]);
     }
 }
