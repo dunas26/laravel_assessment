@@ -29,8 +29,8 @@ class RestaurantItem extends Component
             return $value->active;
         })
         ->count();
-        $table_count = $tables->count();
-        $tables_available = $table_count - $active_table_count > 0;
+        $table_count = $tables->count() - $active_table_count;
+        $tables_available = $active_table_count > 0;
         return view('components.restaurant-item',
             [
                 'restaurant' => $this->restaurant,

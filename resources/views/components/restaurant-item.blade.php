@@ -36,6 +36,10 @@
     gap: 1rem;
     color: rgb(150 150 150);
 }
+
+.restaurant_section__badgegroup .active {
+    color: rgb(47 161 196);
+}
 </style>
 @endonce
 
@@ -45,15 +49,15 @@
         <section class="restaurant_section__info_tablecount">
             <section class="restaurant_section__badgegroup">
                 <article class="restaurant_section__table_badge">
-                    <i class="bx bx-calendar-check"></i>
-                    <p>
-                        {{$active_tables}}
-                    </p>
-                </article>
-                <article class="restaurant_section__table_badge">
                     <i class="bx bx-calendar-x"></i>
                     <p>
                         {{$tables}}
+                    </p>
+                </article>
+                <article class="restaurant_section__table_badge active">
+                    <i class="bx bx-calendar-check"></i>
+                    <p>
+                        {{$active_tables}}
                     </p>
                 </article>
             </section>
