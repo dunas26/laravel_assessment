@@ -4,18 +4,12 @@
 
 @section('header-content')
 <section>
-    <button>New table</button>
+    <x-button label="New table" :emphasis="true" boxicon="bx bx-plus"/>
 </section>
 @endsection
 
 @section('content')
 <section>
-    @foreach($tables as $table)
-    <article>
-        <h2>{{ $table->name }}</h2>
-        <section>
-        </section>
-    </article>
-    @endforeach
+    <x-table-list :tables="$tables"/>
 </section>
 @endsection
