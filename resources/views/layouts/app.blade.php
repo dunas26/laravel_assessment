@@ -24,6 +24,10 @@
                 margin: 0;
             }
 
+            a, a:visited, a:hover, a:active {
+                text-decoration: none;
+            }
+
             html {
                 display: flex;
                 min-height: 100%;
@@ -35,6 +39,6 @@
         </style>
     </head>
     <body>
-        @yield('content')
+        @yield('base-content')
     </body>
 </html>

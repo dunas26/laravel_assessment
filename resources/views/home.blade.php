@@ -67,7 +67,9 @@ main {
     <img class="wave" src="{{ asset('img/wave.svg') }}" role="presentation">
     <i class="bx bx-restaurant restaurant-icon"></i>
     <main>
-        <x-button label="See restaurant list" boxicon="bx bx-right-arrow-alt"/>
+        <a href="{{ route('restaurants') }}">
+            <x-button label="See restaurant list" boxicon="bx bx-right-arrow-alt"/>
+        </a>
     </main>
 </section>
 @endsection

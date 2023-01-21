@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','HomeController@index');
-Route::get('/restaurant/{id}/tables', 'RestaurantController@showTables');
-Route::get('/restaurant/{id}/active-tables', 'RestaurantController@showActiveTables');
+Route::get('/','HomeController@index')->name('home');
+Route::get('/restaurants', 'RestaurantController@showRestaurants')->name('restaurants');
+Route::get('/restaurant/{id}/tables', 'RestaurantController@showTables')->name('tables');
+Route::get('/restaurant/{id}/active-tables', 'RestaurantController@showActiveTables')->name('active-tables');
