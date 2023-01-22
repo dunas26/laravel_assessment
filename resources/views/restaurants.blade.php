@@ -15,7 +15,9 @@
 
 @section('header-content')
 <section>
-    <x-button label="New restaurant" :emphasis="true" boxicon="bx bx-plus"/>
+    <a href="/restaurant/create">
+        <x-button label="New restaurant" :emphasis="true" boxicon="bx bx-plus"/>
+    </a>
 </section>
 @endsection
 

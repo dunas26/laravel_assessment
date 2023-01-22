@@ -15,5 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','HomeController@index')->name('home');
 Route::get('/restaurants', 'RestaurantController@showRestaurants')->name('restaurants');
+Route::get('/restaurant/create', 'RestaurantController@createRestaurantForm')->name('restaurant-form');
+Route::get('/table/create', 'TableController@createTableForm')->name('table-form');
 Route::get('/restaurant/{id}/tables', 'RestaurantController@showTables')->name('tables');
 Route::get('/restaurant/{id}/active-tables', 'RestaurantController@showActiveTables')->name('active-tables');
+
+Route::post('/restaurant/create', 'RestaurantController@requestCreateRestaurant')->name('create-restaurant');
+Route::post('/table/create', 'TableController@requestCreateTable')->name('create-table');

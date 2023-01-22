@@ -4,7 +4,9 @@
 
 @section('header-content')
 <section>
-    <x-button label="New table" :emphasis="true" boxicon="bx bx-plus"/>
+    <a href="/table/create?name={{ urlencode($restaurant->name) }}">
+        <x-button label="New table" :emphasis="true" boxicon="bx bx-plus"/>
+    </a>
 </section>
 @endsection
 

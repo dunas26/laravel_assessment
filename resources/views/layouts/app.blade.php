@@ -12,6 +12,7 @@
             @endif
         </title>
         @stack('styles')
+        @stack('scripts')
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Sofia+Sans&family=Solitreo&display=swap');
 
