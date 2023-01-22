@@ -54,6 +54,10 @@ main {
     transform: rotateZ(20deg);
 }
 
+.wave {
+    width: 100%;
+}
+
 </style>
 @endpush
 
