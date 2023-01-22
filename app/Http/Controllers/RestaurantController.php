@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\DiningArea;
+use App\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -40,5 +42,23 @@ class RestaurantController extends Controller
         ->groupBy('dining_area_name');
 
         return view('active-tables', compact('restaurant', 'groups'));
+    }
+
+    public function createRestaurantForm() {
+        return view('create-restaurant');
+    }
+
+    public function requestCreateRestaurant(Request $request) {
+        $name = $request->name;
+        $found = Restaurant::where("name", "=", $name)->first();
+        if ($found) return view('notify', ['url' => '/restaurant/create', 'msg' => "A restaurant with name '$request->name' has been found. Please choose another name."]);
+        $restaurant = new Restaurant;
+        $restaurant->name = $request->name;
+        $restaurant->save();
+        $dining_areas = DiningArea::all();
+        return redirect()->action(
+            [TableController::class, 'createTableForm'],
+            ['name' => $name, 'dining_areas' => $dining_areas]
+        );
     }
 }
