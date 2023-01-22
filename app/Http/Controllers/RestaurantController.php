@@ -50,11 +50,19 @@ class RestaurantController extends Controller
 
     public function requestCreateRestaurant(Request $request) {
         $name = $request->name;
+        if (!$name) return view('notify', ['url' => '/restaurant/create', 'msg' => "As nice as it could be, you cannot save an empty restaurant name in the database. Please input a name."]);
         $found = Restaurant::where("name", "=", $name)->first();
         if ($found) return view('notify', ['url' => '/restaurant/create', 'msg' => "A restaurant with name '$request->name' has been found. Please choose another name."]);
         $restaurant = new Restaurant;
         $restaurant->name = $request->name;
-        $restaurant->save();
+
+        try {
+            $restaurant->save();
+        }
+        catch(\Throwable $th) {
+            return view('notify', ['url' => $return_url, 'msg' => "An error has been caught while trying to save a table: " . $th->getMessage()]);
+        }
+
         $dining_areas = DiningArea::all();
         return redirect()->action(
             [TableController::class, 'createTableForm'],

@@ -11,13 +11,13 @@ use Illuminate\Http\Request;
 class TableController extends Controller
 {
     public function requestCreateTable(Request $request) {
-        $restaurant = Restaurant::where('name', '=', $request->restaurant_name)->first();
         $name = $request->restaurant_name;
+        $restaurant = Restaurant::where('name', '=', $name)->first();
         $return_url = '/table/create?name=' . urlencode($name);
         if (!$restaurant) return view('notify', ['url' => $return_url, 'msg' => "Restaurant '$name' not found."]);
-
         $table_found = Table::where('name', '=', $request->name)->first();
         if ($table_found) return view('notify', ['url' => $return_url, 'msg' => "A table with name '$request->name' has been found. Please choose another name."]);
+        if (!$request->name) return view('notify', ['url' => $return_url, 'msg' => "The name of the table is required. Please input a proper table name so we can continue."]);
 
         $table = new Table;
         $table->name = $request->name;
@@ -26,7 +26,12 @@ class TableController extends Controller
         $table->dining_area_id = $request->area;
         $table->restaurant_id = $restaurant->id ?? -1;
         $table->active = $request->active == "on";
-        $table->save();
+        try {
+            $table->save();
+        }
+        catch(\Throwable $th) {
+            return view('notify', ['url' => $return_url, 'msg' => "An error has been caught while trying to save a table: " . $th->getMessage()]);
+        }
 
         return redirect($request->next);
     }
