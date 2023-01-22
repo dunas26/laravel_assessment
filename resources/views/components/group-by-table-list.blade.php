@@ -46,6 +46,15 @@
         font-weight: bold;
         border-bottom: 1px solid rgb(230 230 230);
     }
+
+    .tablelist__empty {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 15rem;
+        color: black;
+        border: 1px solid rgba(240 240 240);
+    }
 </style>
 @endonce
 
@@ -55,6 +64,7 @@
         <p>Min. Capacity</p>
         <p>Max. Capacity</p>
     </section>
+    @if(count($groups))
     @foreach($groups as $dining_area => $tables)
     <section class="tablelist__group">
         <i class="bx bxs-map"></i>
@@ -68,4 +78,9 @@
             </section>
         @endforeach
     @endforeach
+    @else
+    <section class="tablelist__empty">
+        <p>There are no active tables in this restaurant.</p>
+    </section>
+    @endif
 </article>

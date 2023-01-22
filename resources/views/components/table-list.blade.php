@@ -50,6 +50,15 @@
     .tablelist__entry_active.inactive {
         color: rgb(220 100 100);
     }
+
+    .tablelist__empty {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 10rem;
+        color: black;
+        border: 1px solid rgba(240 240 240);
+    }
 </style>
 @endonce
 
@@ -60,15 +69,21 @@
         <p>Max. Capacity</p>
         <p>Is active</p>
     </section>
-    @foreach($tables as $table)
-        <section class="tablelist__entry">
-            <p>{{ $table->name }}</p>
-            <p>{{ $table->minimum_capacity }}</p>
-            <p>{{ $table->maximum_capacity }}</p>
-            <section class="tablelist__entry_active {{$table->active ? ' active' : ' inactive'}}">
-                <i class="bx bx-{{ $table->active ? 'check' : 'x'}}"></i>
-                <p>{{ $table->active ? 'yes' : 'no'}}</p>
+    @if(count($tables))
+        @foreach($tables as $table)
+            <section class="tablelist__entry">
+                <p>{{ $table->name }}</p>
+                <p>{{ $table->minimum_capacity }}</p>
+                <p>{{ $table->maximum_capacity }}</p>
+                <section class="tablelist__entry_active {{$table->active ? ' active' : ' inactive'}}">
+                    <i class="bx bx-{{ $table->active ? 'check' : 'x'}}"></i>
+                    <p>{{ $table->active ? 'yes' : 'no'}}</p>
+                </section>
             </section>
-        </section>
-    @endforeach
+        @endforeach
+    @else
+    <section class="tablelist__empty">
+        <p>There are no registered tables in this restaurant.</p>
+    </section>
+    @endif
 </article>
