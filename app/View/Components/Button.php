@@ -25,6 +25,10 @@ class Button extends Component
      */
     public function render()
     {
-        return view('components.button', ['label' => $this->label, 'boxicon' => $this->boxicon, 'emphasis' => $this->emphasis ]);
+        return view('components.button',
+            ['label' => $this->label,
+                'boxicon' => $this->boxicon,
+                'emphasis' => $this->emphasis,
+            ]);
     }
 }
