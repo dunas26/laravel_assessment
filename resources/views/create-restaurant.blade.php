@@ -70,10 +70,10 @@ addEventListener('DOMContentLoaded', () => {
 </form>
 <section class="button-group">
     <span class="button__submit">
-        <x-button label="Submit" :emphasis="true" />
+        <x-button label="Submit" :emphasis="true" boxicon="bx bxs-send" />
     </span>
     <a href="/restaurants">
-        <x-button label="Cancel" />
+        <x-button label="Cancel" boxicon="bx bx-x"/>
     </a>
 </section>
 @endsection

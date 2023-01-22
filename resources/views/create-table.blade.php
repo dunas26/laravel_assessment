@@ -61,7 +61,7 @@
 @section('title', 'Create a table for \'' . $name . '\' restaurant')
 
 @push('scripts')
-<script >
+<script>
 addEventListener('DOMContentLoaded', () => {
     const form = document.forms[0];
 
@@ -140,13 +140,13 @@ addEventListener('DOMContentLoaded', () => {
     </form>
     <section class="button-group">
         <span class="button__continue">
-            <x-button label="Add and continue adding" :emphasis="true" />
+            <x-button label="Add and continue adding" :emphasis="true" boxicon="bx bx-plus" />
         </span>
         <span class="button__finish">
-            <x-button label="Add and finish" />
+            <x-button label="Add and finish" boxicon="bx bx-exit" />
         </span>
         <a href="/restaurants">
-            <x-button label="Cancel" />
+            <x-button label="Cancel" boxicon="bx bx-x"/>
         </a>
     </section>
 </main>

@@ -25,6 +25,8 @@ main h1 {
 <main>
     <h1>Notification</h1>
     <p>{{$msg}}</p>
-    <a href="{{$url ?? '/'}}"><x-button label="Ok" :emphasis="true" /></a>
+    <a href="{{$url ?? '/'}}">
+        <x-button label="Ok" :emphasis="true" boxicon="bx bx-check" />
+    </a>
 </main>
 @endsection()

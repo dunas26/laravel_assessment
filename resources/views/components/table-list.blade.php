@@ -55,7 +55,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 10rem;
+        height: 15rem;
         color: black;
         border: 1px solid rgba(240 240 240);
     }
